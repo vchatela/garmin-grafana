@@ -563,6 +563,8 @@ if __name__ == "__main__":
     bulk_selection = "daily_avg,sleep,activity,hydration"
     if 'running_dynamics' in garmin_fetch.FETCH_SELECTION:
         bulk_selection += ",running_dynamics"
+    if 'stryd' in garmin_fetch.FETCH_SELECTION.split(','):
+        bulk_selection += ",stryd"
     garmin_fetch.FETCH_SELECTION = bulk_selection
 
     garmin_fetch.fetch_write_bulk(args.start_date, args.end_date)
